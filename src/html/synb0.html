@@ -1,0 +1,128 @@
+
+<!DOCTYPE html
+  PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+      <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+   <!--
+This HTML was auto-generated from MATLAB code.
+To make changes, update the MATLAB code and republish this document.
+      --><title>synb0</title><meta name="generator" content="MATLAB 9.4"><link rel="schema.DC" href="http://purl.org/dc/elements/1.1/"><meta name="DC.date" content="2018-10-29"><meta name="DC.source" content="synb0.m"><style type="text/css">
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,font,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td{margin:0;padding:0;border:0;outline:0;font-size:100%;vertical-align:baseline;background:transparent}body{line-height:1}ol,ul{list-style:none}blockquote,q{quotes:none}blockquote:before,blockquote:after,q:before,q:after{content:'';content:none}:focus{outine:0}ins{text-decoration:none}del{text-decoration:line-through}table{border-collapse:collapse;border-spacing:0}
+
+html { min-height:100%; margin-bottom:1px; }
+html body { height:100%; margin:0px; font-family:Arial, Helvetica, sans-serif; font-size:10px; color:#000; line-height:140%; background:#fff none; overflow-y:scroll; }
+html body td { vertical-align:top; text-align:left; }
+
+h1 { padding:0px; margin:0px 0px 25px; font-family:Arial, Helvetica, sans-serif; font-size:1.5em; color:#d55000; line-height:100%; font-weight:normal; }
+h2 { padding:0px; margin:0px 0px 8px; font-family:Arial, Helvetica, sans-serif; font-size:1.2em; color:#000; font-weight:bold; line-height:140%; border-bottom:1px solid #d6d4d4; display:block; }
+h3 { padding:0px; margin:0px 0px 5px; font-family:Arial, Helvetica, sans-serif; font-size:1.1em; color:#000; font-weight:bold; line-height:140%; }
+
+a { color:#005fce; text-decoration:none; }
+a:hover { color:#005fce; text-decoration:underline; }
+a:visited { color:#004aa0; text-decoration:none; }
+
+p { padding:0px; margin:0px 0px 20px; }
+img { padding:0px; margin:0px 0px 20px; border:none; }
+p img, pre img, tt img, li img, h1 img, h2 img { margin-bottom:0px; } 
+
+ul { padding:0px; margin:0px 0px 20px 23px; list-style:square; }
+ul li { padding:0px; margin:0px 0px 7px 0px; }
+ul li ul { padding:5px 0px 0px; margin:0px 0px 7px 23px; }
+ul li ol li { list-style:decimal; }
+ol { padding:0px; margin:0px 0px 20px 0px; list-style:decimal; }
+ol li { padding:0px; margin:0px 0px 7px 23px; list-style-type:decimal; }
+ol li ol { padding:5px 0px 0px; margin:0px 0px 7px 0px; }
+ol li ol li { list-style-type:lower-alpha; }
+ol li ul { padding-top:7px; }
+ol li ul li { list-style:square; }
+
+.content { font-size:1.2em; line-height:140%; padding: 20px; }
+
+pre, code { font-size:12px; }
+tt { font-size: 1.2em; }
+pre { margin:0px 0px 20px; }
+pre.codeinput { padding:10px; border:1px solid #d3d3d3; background:#f7f7f7; }
+pre.codeoutput { padding:10px 11px; margin:0px 0px 20px; color:#4c4c4c; }
+pre.error { color:red; }
+
+@media print { pre.codeinput, pre.codeoutput { word-wrap:break-word; width:100%; } }
+
+span.keyword { color:#0000FF }
+span.comment { color:#228B22 }
+span.string { color:#A020F0 }
+span.untermstring { color:#B20000 }
+span.syscmd { color:#B28C00 }
+
+.footer { width:auto; padding:10px 0px; margin:25px 0px 0px; border-top:1px dotted #878787; font-size:0.8em; line-height:140%; font-style:italic; color:#878787; text-align:left; float:none; }
+.footer p { margin:0px; }
+.footer a { color:#878787; }
+.footer a:hover { color:#878787; text-decoration:underline; }
+.footer a:visited { color:#878787; }
+
+table th { padding:7px 5px; text-align:left; vertical-align:middle; border: 1px solid #d6d4d4; font-weight:bold; }
+table td { padding:7px 5px; text-align:left; vertical-align:top; border:1px solid #d6d4d4; }
+
+
+
+
+
+  </style></head><body><div class="content"><pre class="codeinput"><span class="keyword">function</span> synb0(Dmprspace, mpr, Dresults, name, dataset)
+<span class="comment">   %{
+</span><span class="comment">     input:
+</span><span class="comment">        Dmprspace: directory where intermediate output will be stored
+</span><span class="comment">        mpr: T1 file
+</span><span class="comment">        Dresults: output directory for b0 synthesis
+</span><span class="comment">        name: output file name (subject name typical)
+</span><span class="comment">        dataset: output directory of RGB conversion
+</span><span class="comment">    %}
+</span>
+    addpath(<span class="string">'/home-nfs/masi-shared-home/home/local/VANDERBILT/hansencb/NIFTI'</span>);
+    addpath(genpath(<span class="string">'/home-nfs/masi-shared-home/home/local/VANDERBILT/hansencb/masimatlab/trunk/users/blaberj/matlab/justinlib_v1_7_0'</span>));
+
+    <span class="comment">%datRGBtriDWMRI(Dmprspace, mpr, name, dataset);</span>
+
+    pix2pix_commands = [strcat(<span class="string">"env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py --dataroot "</span>, dataset, <span class="string">"-axi --name b0ganRGB-axi_pix2pix --model pix2pix --results_dir "</span>, Dresults ,<span class="string">" --which_direction AtoB  --how_many  10000000"</span>)
+                        strcat(<span class="string">"env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py --dataroot "</span>, dataset, <span class="string">"-sag --name b0ganRGB-sag_pix2pix --model pix2pix --results_dir "</span>, Dresults ,<span class="string">" --which_direction AtoB  --how_many  10000000"</span>)
+                        strcat(<span class="string">"env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py --dataroot "</span>, dataset, <span class="string">"-cor --name b0ganRGB-cor_pix2pix --model pix2pix --results_dir "</span>, Dresults ,<span class="string">" --which_direction AtoB  --how_many  10000000"</span>)];
+
+    <span class="comment">%for i = 1:length(pix2pix_commands)</span>
+    <span class="comment">%    system(pix2pix_commands(i));</span>
+    <span class="comment">%end</span>
+
+    datRGBtriDWMRIrecon(Dmprspace, Dresults, name, dataset);
+
+<span class="keyword">end</span>
+</pre><pre class="codeoutput error">Not enough input arguments.
+
+Error in synb0 (line 16)
+    pix2pix_commands = [strcat("env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py --dataroot ", dataset, "-axi --name b0ganRGB-axi_pix2pix --model pix2pix --results_dir ", Dresults ," --which_direction AtoB  --how_many  10000000")
+</pre><p class="footer"><br><a href="https://www.mathworks.com/products/matlab/">Published with MATLAB&reg; R2018a</a><br></p></div><!--
+##### SOURCE BEGIN #####
+function synb0(Dmprspace, mpr, Dresults, name, dataset)
+   %{ 
+     input:
+        Dmprspace: directory where intermediate output will be stored
+        mpr: T1 file
+        Dresults: output directory for b0 synthesis
+        name: output file name (subject name typical)
+        dataset: output directory of RGB conversion
+    %}
+
+    addpath('/home-nfs/masi-shared-home/home/local/VANDERBILT/hansencb/NIFTI');
+    addpath(genpath('/home-nfs/masi-shared-home/home/local/VANDERBILT/hansencb/masimatlab/trunk/users/blaberj/matlab/justinlib_v1_7_0'));
+
+    %datRGBtriDWMRI(Dmprspace, mpr, name, dataset);
+    
+    pix2pix_commands = [strcat("env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py REPLACE_WITH_DASH_DASHdataroot ", dataset, "-axi REPLACE_WITH_DASH_DASHname b0ganRGB-axi_pix2pix REPLACE_WITH_DASH_DASHmodel pix2pix REPLACE_WITH_DASH_DASHresults_dir ", Dresults ," REPLACE_WITH_DASH_DASHwhich_direction AtoB  REPLACE_WITH_DASH_DASHhow_many  10000000")
+                        strcat("env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py REPLACE_WITH_DASH_DASHdataroot ", dataset, "-sag REPLACE_WITH_DASH_DASHname b0ganRGB-sag_pix2pix REPLACE_WITH_DASH_DASHmodel pix2pix REPLACE_WITH_DASH_DASHresults_dir ", Dresults ," REPLACE_WITH_DASH_DASHwhich_direction AtoB  REPLACE_WITH_DASH_DASHhow_many  10000000")
+                        strcat("env -i /usr/bin/python ./python/pytorch-CycleGAN-and-pix2pix/test.py REPLACE_WITH_DASH_DASHdataroot ", dataset, "-cor REPLACE_WITH_DASH_DASHname b0ganRGB-cor_pix2pix REPLACE_WITH_DASH_DASHmodel pix2pix REPLACE_WITH_DASH_DASHresults_dir ", Dresults ," REPLACE_WITH_DASH_DASHwhich_direction AtoB  REPLACE_WITH_DASH_DASHhow_many  10000000")];
+                    
+    %for i = 1:length(pix2pix_commands)
+    %    system(pix2pix_commands(i));
+    %end
+    
+    datRGBtriDWMRIrecon(Dmprspace, Dresults, name, dataset);
+
+end
+##### SOURCE END #####
+--></body></html>
