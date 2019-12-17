@@ -1,0 +1,2 @@
+flirt -in mni_icbm152_t1_tal_nlin_asym_09c.nii.gz -ref mni_icbm152_t1_tal_nlin_asym_09c.nii.gz -out mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz -applyisoxfm 2.5 -interp sinc
+flirt -in mni_icbm152_t1_tal_nlin_asym_09c_mask.nii.gz -ref mni_icbm152_t1_tal_nlin_asym_09c.nii.gz -out mni_icbm152_t1_tal_nlin_asym_09c_mask_2_5.nii.gz -applyisoxfm 2.5 -interp sinc
