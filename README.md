@@ -12,6 +12,14 @@ sudo docker run --rm \
 -v <path to license.txt>:/extra/freesurfer/license.txt \
 --user $(id -u):$(id -g) \
 justinblaber/synb0_25iso
+
+*** For Mac users, Docker defaults allows only 2gb of RAM 
+and 2 cores - we suggest giving Docker access to >8Gb 
+of RAM
+*** Additionally on MAC, if permissions issues prevent binding the
+path to the license.txt file, we suggest moving the freesurfer
+license.txt file to the current path and replacing the path line to
+" $(pwd)/license.txt:/extra/freesurfer/license.txt "
 ```
 For singularity:
 ```
@@ -22,7 +30,9 @@ singularity run -e \
 shub://justinblaber/synb0_25iso_app
 
 <path to license.txt> should point to freesurfer licesnse.txt file
-
+```
+INPUTS:
+```
 INPUTS directory must contain the following:
 b0.nii.gz, T1.nii.gz, and acqparams.txt
 
@@ -37,7 +47,10 @@ row corresponds to the synthesized, undistorted, b0:
 $ cat acqparams.txt 
 0 1 0 0.062
 0 1 0 0.000
+```
 
+OUTPUTS:
+```
 After running, the outputs directory contains the following:
 T1_mask.nii.gz: masked T1   
 T1_norm.nii.gz: normalized T1
@@ -79,3 +92,22 @@ b0_all_topup.nii.g
 b0_all.topup_log         
 b0_topup.nii.gz                            
 topup_fieldcoef.nii.gz
+```
+
+AFTER RUNNING:
+```
+After running, we envision using the topup outputs directly with FSL's 
+eddy command, exactly as would be done if a full set of reverse PE 
+scans was acquired. For example:
+
+eddy --imain=path/to/diffusiondata.nii.gz --mask=path/to/brainmask.nii.gz \
+--acqp=path/to/acqparams.txt --index=path/to/index.txt \
+--bvecs=path/to/bvecs.txt --bvals=path/to/bvals.txt 
+--topup=path/to/OUTPUTS/topup --out=eddy_unwarped_images
+
+where imain is the original diffusion data, mask is a brain mask, acqparams
+is from before, index is the traditional eddy index file which contains an 
+index (most likely a 1) for every volume in the diffusion dataset, topup points 
+to the output of the singularity/docker pipeline, and out is the eddy-corrected
+images utilizing the field coefficients from the previous step.
+
