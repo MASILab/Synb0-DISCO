@@ -48,6 +48,14 @@ $ cat acqparams.txt
 0 1 0 0.062
 0 1 0 0.000
 ```
+Without singularity or Docker:
+```
+If you choose to run this  in bash, the script that is containerized in located in
+src/pipeline.sh. The paths in pipeline.sh are specific to the docker/singularity file
+system, but the processing can be replicated using the scripts in src.
+
+These utilize freesurfer, FSL, ANTS, and a python environment with pytorch.
+```
 
 OUTPUTS:
 ```
