@@ -50,7 +50,7 @@ $ cat acqparams.txt
 ```
 Without singularity or Docker:
 ```
-If you choose to run this  in bash, the script that is containerized in located in
+If you choose to run this  in bash, the script that is containerized is located in
 src/pipeline.sh. The paths in pipeline.sh are specific to the docker/singularity file
 system, but the processing can be replicated using the scripts in src.
 
