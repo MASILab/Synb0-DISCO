@@ -14,9 +14,14 @@ sudo docker run --rm \
 justinblaber/synb0_25iso
 
 See INPUTS/OUTPUTS sections below.
-In short, if within your current directory you have your INPUTS and OUTPUTS folder, you can run this command copy/paste with the only change being <path to license.txt> should point to freesurfer licesnse.txt file on your system.
+In short, if within your current directory you have your INPUTS 
+and OUTPUTS folder, you can run this command copy/paste with the 
+only change being <path to license.txt> should point to 
+freesurfer licesnse.txt file on your system.
 
-If INPUTS and OUTPUTS are not within your current directory, you will need to change $(pwd)/INPUTS/ to the full path to your input directory, and similarly for OUTPUTS.
+If INPUTS and OUTPUTS are not within your current directory, you
+will need to change $(pwd)/INPUTS/ to the full path to your 
+input directory, and similarly for OUTPUTS.
 
 *** For Mac users, Docker defaults allows only 2gb of RAM 
 and 2 cores - we suggest giving Docker access to >8Gb 
