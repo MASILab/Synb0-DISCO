@@ -1,2 +1,0 @@
-Bootstrap: docker
-From: justinblaber/synb0_25iso:1.0.0
