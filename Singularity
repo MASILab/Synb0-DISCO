@@ -1,2 +1,2 @@
 Bootstrap: docker
-From: justinblaber/synb0_25iso
+From: hansencb/synb0
