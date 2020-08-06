@@ -1,7 +1,7 @@
 # synb0_25iso_app
-[Docker Hub](https://hub.docker.com/r/justinblaber/synb0_25iso/tags/)
+[Docker Hub](https://hub.docker.com/repository/docker/hansencb/synb0)
 
-[Singularity Hub](https://www.singularity-hub.org/collections/3102)
+[Singularity Hub](https://singularity-hub.org/collections/4629)
 
 # Run Instructions:
 For docker:
@@ -11,7 +11,10 @@ sudo docker run --rm \
 -v $(pwd)/OUTPUTS:/OUTPUTS/ \
 -v <path to license.txt>:/extra/freesurfer/license.txt \
 --user $(id -u):$(id -g) \
-justinblaber/synb0_25iso
+hansencb/synb0
+
+Flags:
+--notopup Skips the application of FSL's topup susceptability correction 
 
 See INPUTS/OUTPUTS sections below.
 In short, if within your current directory you have your INPUTS 
@@ -37,9 +40,12 @@ singularity run -e \
 -B INPUTS/:/INPUTS \
 -B OUTPUTS/:/OUTPUTS \
 -B <path to license.txt>:/extra/freesurfer/license.txt \
-shub://justinblaber/synb0_25iso_app
+shub://hanscol/synb0
 
 <path to license.txt> should point to freesurfer licesnse.txt file
+
+Flags:
+--notopup Skips the application of FSL's topup susceptability correction 
 ```
 INPUTS:
 ```
