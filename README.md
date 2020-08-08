@@ -15,6 +15,9 @@ hansencb/synb0
 
 Flags:
 --notopup Skips the application of FSL's topup susceptability correction 
+* as a default, we run topup for you, although you may want to run this on
+ your own (for example with your own config file, or if you would like to 
+ utilize multiple b0's)
 
 See INPUTS/OUTPUTS sections below.
 In short, if within your current directory you have your INPUTS 
@@ -46,6 +49,9 @@ shub://hanscol/synb0
 
 Flags:
 --notopup Skips the application of FSL's topup susceptability correction 
+* as a default, we run topup for you, although you may want to run this on
+ your own (for example with your own config file, or if you would like to 
+ utilize multiple b0's)
 ```
 INPUTS:
 ```
@@ -134,4 +140,9 @@ is from before, index is the traditional eddy index file which contains an
 index (most likely a 1) for every volume in the diffusion dataset, topup points 
 to the output of the singularity/docker pipeline, and out is the eddy-corrected
 images utilizing the field coefficients from the previous step.
+
+Alternatively, if you choose to run --notopup flag, the file you are interested in
+is b0_all. This is a concatenation of the real b0 and the synthesized undistorted
+b0. We run topup with this file, although you may chose to do so utilizing your 
+topup version or config file. 
 
