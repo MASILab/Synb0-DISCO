@@ -14,7 +14,7 @@ sudo docker run --rm \
 hansencb/synb0
 
 Flags:
---notopup Skips the application of FSL's topup susceptability correction 
+--notopup Skips the application of FSL's topup susceptibility correction 
 * as a default, we run topup for you, although you may want to run this on
  your own (for example with your own config file, or if you would like to 
  utilize multiple b0's)
@@ -48,7 +48,7 @@ shub://hanscol/synb0
 <path to license.txt> should point to freesurfer licesnse.txt file
 
 Flags:
---notopup Skips the application of FSL's topup susceptability correction 
+--notopup Skips the application of FSL's topup susceptibility correction 
 * as a default, we run topup for you, although you may want to run this on
  your own (for example with your own config file, or if you would like to 
  utilize multiple b0's)
