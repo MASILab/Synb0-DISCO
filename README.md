@@ -39,7 +39,7 @@ For singularity:
 ```
 singularity pull docker://hansencb/synb0
 ```
-This will build synb0.simg in the current directory. Then to run:
+ This will build synb0.simg in the current directory. Then to run:
 ```
 singularity run -e \
 -B INPUTS/:/INPUTS \
