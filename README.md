@@ -1,8 +1,6 @@
 # synb0_25iso_app
 [Docker Hub](https://hub.docker.com/repository/docker/hansencb/synb0)
 
-[Singularity Hub](https://singularity-hub.org/collections/4629)
-
 # Run Instructions:
 For docker:
 ```
