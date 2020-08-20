@@ -39,13 +39,16 @@ license.txt file to the current path and replacing the path line to
 ```
 For singularity:
 ```
+singularity pull docker://hansencb/synb0
+
 singularity run -e \
 -B INPUTS/:/INPUTS \
 -B OUTPUTS/:/OUTPUTS \
 -B <path to license.txt>:/extra/freesurfer/license.txt \
-shub://hanscol/synb0
+<path to synb0.simg>
 
 <path to license.txt> should point to freesurfer licesnse.txt file
+<path to synb0.simg> should point to the singularity container (this will be in the directory where singularity pull was called)
 
 Flags:
 --notopup Skips the application of FSL's topup susceptibility correction 
