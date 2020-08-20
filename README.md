@@ -48,7 +48,8 @@ singularity run -e \
 <path to synb0.simg>
 
 <path to license.txt> should point to freesurfer licesnse.txt file
-<path to synb0.simg> should point to the singularity container (this will be in the directory where singularity pull was called)
+<path to synb0.simg> should point to the singularity container 
+(this will be in the directory where singularity pull was called)
 
 Flags:
 --notopup Skips the application of FSL's topup susceptibility correction 
