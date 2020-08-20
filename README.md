@@ -36,7 +36,7 @@ license.txt file to the current path and replacing the path line to
 " $(pwd)/license.txt:/extra/freesurfer/license.txt "
 ```
 For singularity:
- + Build synb0.simg in the current directory
+ + Build synb0.simg in the current directory:
 ```
 singularity pull docker://hansencb/synb0
 ```
