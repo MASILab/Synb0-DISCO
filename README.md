@@ -1,7 +1,7 @@
 # Synb0-DISCO
 This repository implements the paper "Synthesized b0 for diffusion distortion correction". For deployment we provide a docker container which uses the trained model to predict the undistorted b0 to be used in susceptability distortion correction for diffusion weighted MRI. Please use the following citation to refer to this work:
 
-Kurt G Schilling, Yuankai Huo, Allen Newton, Colin Hansen, Vishwesh Nath, Andrea T. Shafer, Owen Williams, Susan M. Resnick, Baxter Rogers, Adam W Anderson, Bennett A Landman. “Synthesized b0 for diffusion distortion correction (Synb0-DisCo).” Magnetic Resonance Imaging. 2019. 
+Schilling KG, Blaber J, Huo Y, Newton A, Hansen C, Nath V, Shafer AT, Williams O, Resnick SM, Rogers B, Anderson AW, Landman BA. Synthesized b0 for diffusion distortion correction (Synb0-DisCo). Magn Reson Imaging. 2019 Dec;64:62-70. doi: 10.1016/j.mri.2019.05.008. Epub 2019 May 7. PMID: 31075422; PMCID: PMC6834894.
 
 # synb0_25iso_app
 [Docker Hub](https://hub.docker.com/repository/docker/hansencb/synb0)
