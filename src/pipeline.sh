@@ -19,6 +19,21 @@ export PATH=$PATH:$ANTSPATH:/extra/ANTS/ANTs/Scripts
 # Set up pytorch
 source /extra/pytorch/bin/activate
 
+# Check input
+if [[ ! -f /INPUTS/b0.nii.gz ]]; then
+	echo ERROR: Could not find required input /INPUTS/b0.nii.gz
+	exit 
+elif [[ ! -f /INPUTS/T1.nii.gz ]]; then
+	echo ERROR: Could not find required input /INPUTS/T1.nii.gz
+	exit
+elif [[ ! -f /INPUTS/acqparams.txt ]]; then
+	echo ERROR: Could not find required input /INPUTS/acqparams.txt
+	exit
+elif [[ ! -f /extra/freesurfer/license.txt ]]; then
+	echo ERROR: Could not find required /extra/freesurfer/license.txt
+	exit
+fi
+
 # Prepare input
 prepare_input.sh /INPUTS/b0.nii.gz /INPUTS/T1.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz /OUTPUTS
 
