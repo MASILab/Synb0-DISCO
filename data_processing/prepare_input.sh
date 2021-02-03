@@ -36,14 +36,15 @@ echo $NORMALIZE_CMD
 eval $NORMALIZE_CMD
 
 # Skull strip T1
+echo -------
 if [ ! -f $T1_MASK_PATH ]; then 
-  echo -------
   echo Skull stripping T1
   T1_MASK_PATH=$JOB_PATH/T1_mask.nii.gz
   BET_CMD="bet $T1_PATH $T1_MASK_PATH -R"
   echo $BET_CMD
   eval $BET_CMD
 else
+  echo Copying user provided T1 Mask
   cp $T1_MASK_PATH $JOB_PATH/T1_mask.nii.gz
   T1_MASK_PATH=$JOB_PATH/T1_mask.nii.gz
 fi

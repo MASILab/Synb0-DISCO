@@ -20,7 +20,7 @@ export PATH=$PATH:$ANTSPATH:/extra/ANTS/ANTs/Scripts
 source /extra/pytorch/bin/activate
 
 # Prepare input
-prepare_input.sh /INPUTS/b0.nii.gz /INPUTS/T1.nii.gz /INPUTS/T1_mask.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz /OUTPUTS
+/extra/prepare_input.sh /INPUTS/b0.nii.gz /INPUTS/T1.nii.gz /INPUTS/T1_mask.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz /OUTPUTS
 
 # Run inference
 NUM_FOLDS=5
