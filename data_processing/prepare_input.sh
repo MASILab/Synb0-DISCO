@@ -3,9 +3,10 @@
 # Get inputs
 B0_D_PATH=$1
 T1_PATH=$2
-T1_ATLAS_PATH=$3
-T1_ATLAS_2_5_PATH=$4
-RESULTS_PATH=$5
+T1_MASK_PATH=$3
+T1_ATLAS_PATH=$4
+T1_ATLAS_2_5_PATH=$5
+RESULTS_PATH=$6
 
 echo -------
 echo INPUTS:
@@ -35,12 +36,17 @@ echo $NORMALIZE_CMD
 eval $NORMALIZE_CMD
 
 # Skull strip T1
-echo -------
-echo Skull stripping T1
-T1_MASK_PATH=$JOB_PATH/T1_mask.nii.gz
-BET_CMD="bet $T1_PATH $T1_MASK_PATH -R"
-echo $BET_CMD
-eval $BET_CMD
+if [ ! -f $T1_MASK_PATH ]; then 
+  echo -------
+  echo Skull stripping T1
+  T1_MASK_PATH=$JOB_PATH/T1_mask.nii.gz
+  BET_CMD="bet $T1_PATH $T1_MASK_PATH -R"
+  echo $BET_CMD
+  eval $BET_CMD
+else
+  cp $T1_MASK_PATH $JOB_PATH/T1_mask.nii.gz
+  T1_MASK_PATH=$JOB_PATH/T1_mask.nii.gz
+fi
 
 # epi_reg distorted b0 to T1; wont be perfect since B0 is distorted
 echo -------
