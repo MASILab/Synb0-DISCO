@@ -78,6 +78,9 @@ row corresponds to the synthesized, undistorted, b0:
 $ cat acqparams.txt 
 0 1 0 0.062
 0 1 0 0.000
+
+T1_mask.nii.gz is an optional user provided mask which excludes the skull in the T1 image. 
+               If not provided a mask will be estimated using FSL's BET.
 ```
 Without singularity or Docker:
 ```
