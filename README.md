@@ -94,7 +94,7 @@ These utilize freesurfer, FSL, ANTS, and a python environment with pytorch.
 OUTPUTS:
 ```
 After running, the outputs directory contains the following:
-T1_mask.nii.gz: masked T1   
+T1_mask.nii.gz: brain extracted (skullstripped) T1   
 T1_norm.nii.gz: normalized T1
 epi_reg_d.mat: epi_reg b0 to T1 in FSL format
 epi_reg_d_ANTS.txt: epi_reg to T1 in ANTS format
