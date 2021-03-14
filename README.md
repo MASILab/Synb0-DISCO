@@ -130,9 +130,8 @@ b0_all.nii.gz: stack of distorted and synthetized image as input to topup
 
 topup outputs to be used for eddy:
 topup_movpar.txt
-b0_all_topup.nii.g
+b0_all_topup.nii.gz
 b0_all.topup_log         
-b0_topup.nii.gz                            
 topup_fieldcoef.nii.gz
 ```
 
