@@ -1,15 +1,19 @@
 #!/bin/bash
 
 TOPUP=1
+MNI_T1_1_MM_FILE=/extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c.nii.gz
 
 for arg in "$@"
 do
     case $arg in
         -i|--notopup)
-        TOPUP=0
+            TOPUP=0
+	        ;;
+    	-s|--stripped)
+	        MNI_T1_1_MM_FILE=/extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_mask.nii.gz
+            ;;
     esac
 done
-
 
 # Set path for executable
 export PATH=$PATH:/extra
@@ -31,7 +35,7 @@ export PATH=$PATH:$ANTSPATH:/extra/ANTS/ANTs/Scripts
 source /extra/pytorch/bin/activate
 
 # Prepare input
-/extra/prepare_input.sh /INPUTS/b0.nii.gz /INPUTS/T1.nii.gz /INPUTS/T1_mask.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c.nii.gz /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz /OUTPUTS
+/extra/prepare_input.sh /INPUTS/b0.nii.gz /INPUTS/T1.nii.gz $MNI_T1_1_MM_FILE /extra/atlases/mni_icbm152_t1_tal_nlin_asym_09c_2_5.nii.gz /OUTPUTS
 
 # Run inference
 NUM_FOLDS=5
