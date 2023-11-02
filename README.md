@@ -42,7 +42,7 @@ leonyichencai/synb0-disco:v3.0
 
 * If within your current directory you have your INPUTS and OUTPUTS folder, you can run this command copy/paste with the only change being \<path to license.txt\> should point to the freesurfer license.txt file on your system.
 * If INPUTS and OUTPUTS are not within your current directory, you will need to change $(pwd)/INPUTS/ to the full path to your input directory, and similarly for OUTPUTS.
-* For Mac users, Docker defaults allows only 2gb of RAM and 2 cores - we suggest giving Docker access to >8Gb of RAM 
+* For Mac users, Docker defaults allows only 2gb of RAM and 2 cores - we suggest giving Docker access to >13Gb of RAM 
 * Additionally on MAC, if permissions issues prevent binding the path to the license.txt file, we suggest moving the freesurfer license.txt file to the current path and replacing the path line to " $(pwd)/license.txt:/extra/freesurfer/license.txt "
 
 ## Singularity Instructions
