@@ -1,0 +1,4 @@
+.git/
+__pycache__/
+venv/
+subjects/
