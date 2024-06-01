@@ -1,2 +1,2 @@
 Bootstrap: docker
-From: leonyichencai/synb0-disco:v3.0
+From: leonyichencai/synb0-disco:v3.1

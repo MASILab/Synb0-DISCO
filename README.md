@@ -36,7 +36,7 @@ sudo docker run --rm \
 -v $(pwd)/OUTPUTS:/OUTPUTS/ \
 -v <path to license.txt>:/extra/freesurfer/license.txt \
 --user $(id -u):$(id -g) \
-leonyichencai/synb0-disco:v3.0
+leonyichencai/synb0-disco:v3.1
 <flags>
 ```
 
@@ -50,7 +50,7 @@ leonyichencai/synb0-disco:v3.0
 First, build the synb0.simg container in the current directory:
 
 ```
-singularity pull docker://leonyichencai/synb0-disco:v3.0
+singularity pull docker://leonyichencai/synb0-disco:v3.1
 ```
 
 Then, to run the synb0.simg container:
