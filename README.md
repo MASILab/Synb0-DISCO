@@ -76,7 +76,7 @@ systems, but the processing can be replicated using the scripts in src. These ut
 
 **--notopup**
 
-Skip the application of FSL's topup susceptibility correction. As a default, we run topup for you, although you may want to run this on your own (for example with your own config file, or if you would like to utilize multiple b0's).
+Skip the application of FSL's topup susceptibility correction. As a default, we run topup for you, although you may want to run this on your own (for example with your own config file, or if you would like to utilize multiple b0's). If desired, you can concatenate the original (distorted) b=0 and the sythesized b=0 with: "fslmerge -t /OUTPUTS/b0_all.nii.gz /OUTPUTS/b0_d_smooth.nii.gz /OUTPUTS/b0_u.nii.gz"
 
 **--stripped**
 
