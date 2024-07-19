@@ -85,7 +85,7 @@ Lets the container know the supplied T1 has already been skull stripped. As a de
 ## Inputs
 
 The INPUTS directory must contain the following:
-* b0.nii.gz: the non-diffusion weighted image(s)
+* b0.nii.gz: the non-diffusion weighted image, must be a 3D image (either one b=0, or the average of all b=0 volumes)
 * T1.nii.gz: the T1-weighted image (either raw or skull-stripped, see [Flags](#flags))
 * acqparams.txt: A text file that describes the acqusition parameters, and is described in detail on the FslWiki for topup (https://fsl.fmrib.ox.ac.uk/fsl/fslwiki/topup). Briefly,
 it describes the direction of distortion and tells TOPUP that the synthesized image has an effective echo spacing of 0 (infinite bandwidth). An example acqparams.txt is
