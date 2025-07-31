@@ -18,7 +18,7 @@ This repository implements the paper "Synthesized b0 for diffusion distortion co
 
 This tool aims to enable susceptibility distortion correction with historical and/or limited datasets that do not include specific sequences for distortion correction (i.e. reverse phase-encoded scans). In short, we synthesize an "undistorted" b=0 image that matches the geometry of structural T1w images and also matches the contrast from diffusion images. We can then use this 'undistorted' image in standard pipelines (i.e. TOPUP) and tell the algorithm that this synthetic image has an infinite bandwidth. Note that the processing below enables both image synthesis, and also synthesis + full pipeline correction, if desired. 
 
-Please use the following citations to refer to this work:
+**Please use the following citations to refer to this work:**
 
 Schilling KG, Blaber J, Hansen C, Cai L, Rogers B, Anderson AW, Smith S, Kanakaraj P, Rex T, Resnick SM, Shafer AT, Cutting LE, Woodward N, Zald D, Landman BA. Distortion correction of diffusion weighted MRI without reverse phase-encoding scans or field-maps. PLoS One. 2020 Jul 31;15(7):e0236418. doi: 10.1371/journal.pone.0236418. PMID: 32735601; PMCID: PMC7394453.
 
