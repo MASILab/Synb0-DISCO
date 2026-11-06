@@ -26,7 +26,7 @@ Schilling KG, Blaber J, Huo Y, Newton A, Hansen C, Nath V, Shafer AT, Williams O
 
 ## Dockerized Application
 
-For deployment we provide a [Docker container](https://hub.docker.com/repository/docker/leonyichencai/synb0-disco) which uses the trained model to predict the undistorted b0 to be used in susceptability distortion correction for diffusion weighted MRI. For those who prefer, Docker containers can be converted to Singularity containers (see below).
+For deployment we provide a [Docker container](https://hub.docker.com/repository/docker/leonyichencai/synb0-disco) which uses the trained model to predict the undistorted b0 to be used in susceptability distortion correction for diffusion weighted MRI. For those who prefer, Docker containers can be converted to Singularity (= Apptainer) containers (see below).
 
 ## Docker Instructions:
 
@@ -65,7 +65,12 @@ singularity run -e \
 ```
 
 * \<path to license.txt\> should point to freesurfer licesnse.txt file
-* \<path to synb0.simg\> should point to the singularity container 
+* \<path to synb0.simg\> should point to the singularity container
+  * Newer singularity pulls are likely to call the singularity container something like synb0-disco_v3.1.sif
+
+If all ran correctly, you may want to clean up the .apptainer cache in your home directory, as it is large (~26 GB) and no longer needed.
+* But be careful if you have cached builds from other containers! Separating the synb0 artifacts from those of other containers is beyond the scope of these instructions.
+* While synb0 is *not* running, `rm -rf ~/.apptainer/*`. A new, empty, `~/.apptainer` will be made the next time you run synb0.
 
 ## Non-containerized Instructions
 
